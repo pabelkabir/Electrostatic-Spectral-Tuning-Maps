@@ -1,16 +1,88 @@
-# Automated Workflow for Electrostatic Spectral Tuning Maps (ESTMs)
+# Automatic Protocol for Generating Electrostatic Spectral Tuning Maps (ESTM)
 
 ## Overview
 
-This repository contains an automated workflow designed for generation of ESTMs for any small molecules. The workflow encompasses all the steps involved in the calculation process, starting from molecule retrieval to the final computation of redox potentials.
+This project provides an automated protocol for generating Electrostatic Spectral Tuning Maps (ESTM) using Python. By following this protocol, users can efficiently compute the Van der Waals (vdW) surface points of a molecule from its XYZ coordinates, prepare Gaussian input files, submit computational jobs, and collect the resulting data. The ultimate goal is to generate detailed ESTM maps, which are crucial for understanding the electrostatic properties and tuning the spectral features of molecules.
+
+The process involves multiple steps, including setting up a virtual environment, installing necessary dependencies, running the main script to compute vdW surface points, generating Gaussian input files, submitting jobs to a computational cluster, and collecting the results. These steps are designed to streamline the workflow and provide a comprehensive solution for ESTM map generation.
 
 ## Authors
 
 Mohammad Pabel Kabir, Samer Gozem
 
+## Requirements
+
+> Python 2.7
+
+> NumPy
+
+> Matplotlib
+
+> Cython
+
+> pyvdwsurface module
+
+## Installation of Requirements
+
+### Step 1: Create a Virtual Environment
+
+Install virtualenv if you don't have it: python2.7 -m pip install virtualenv
+
+Create a virtual environment: python2.7 -m virtualenv vdw_surface
+
+Activate the virtual environment: source vdw_surface/bin/activate
+
+### Step 2: Download and Install pyvdwsurface
+
+Install Cython: python -m pip install cython
+
+Clone the pyvdwsurface repository (optional: you can clone it in any folder): git clone https://github.com/rmcgibbo/pyvdwsurface.git
+
+cd vdw_surface
+
+cd pyvdwsurface
+
+Install pyvdwsurface: python -m pip install .
+
+### Step 3: Install Dependencies
+
+Install NumPy: python -m pip install numpy
+
+Install Matplotlib: python -m pip install matplotlib
+
 ## Workflow Description
 
-### Step 1: Molecule Retrieval (`1-retrieve-molecules.py`)
+### Step 1: Van der Waals (vdW) surface points generation
+
+Place your XYZ coordinate file (Project.xyz) in the same directory as the script. The file should be formatted as follows:
+
+python
+Copy code
+Number of atoms
+Comment line
+Atom1 x1 y1 z1
+Atom2 x2 y2 z2
+...
+Ensure you have the following files in your working directory:
+
+vdw_surface.py (the main script)
+Your XYZ file (e.g., PHE.xyz)
+Run the script:
+
+sh
+Copy code
+python vdw_surface.py
+If you encounter the error "Python is not installed as a framework," open the Matplotlib configuration file and add the following line:
+
+sh
+Copy code
+vim ~/.matplotlib/matplotlibrc
+# Add this line:
+backend: TkAgg
+The script will generate the points of the surface in two formats:
+
+pointsXx.txt: Contains the points with atomic label Xx.
+points.txt: Contains the raw coordinate points on the vdW surface.
 
 The first step involves the retrieval of molecule coordinates based on CAS numbers provided in `file.csv`. The `cirpy` Python library is utilized to generate SMILES codes from these CAS numbers. Following this, the `rdkit` Python library is employed to extract coordinates from the SMILES codes.
 
