@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project provides an automated protocol for generating Electrostatic Spectral Tuning Maps (ESTM) using Python. By following this protocol, users can efficiently compute the Van der Waals (vdW) surface points of a molecule from its XYZ coordinates, prepare Gaussian input files, submit computational jobs, and collect the resulting data. The ultimate goal is to generate detailed ESTM maps, which are crucial for understanding the electrostatic properties and tuning the spectral features of molecules.
+This project provides an automated protocol for generating Electrostatic Spectral Tuning Maps (ESTM) using Python and Shell Scripting. By following this protocol, users can efficiently compute the Van der Waals (vdW) surface points of a molecule from its XYZ coordinates, and generate detailed ESTM maps, which are crucial for understanding the electrostatic properties and tuning the spectral features of molecules.
 
 The process involves multiple steps, including setting up a virtual environment, installing necessary dependencies, running the main script to compute vdW surface points, generating Gaussian input files, submitting jobs to a computational cluster, and collecting the results. These steps are designed to streamline the workflow and provide a comprehensive solution for ESTM map generation.
 
@@ -102,7 +102,8 @@ Run 5.estm.sh to generate a sample.mol2 file, which can be opened with a visuali
 
 ## Getting Started
 
-To begin using this workflow, clone the repository and navigate to the root directory. Ensure that all required Python libraries (`cirpy`, `rdkit`, `periodictable`, etc.) are installed. Follow the steps outlined in the README files within each directory to execute the workflow successfully.
+To begin using this workflow, clone the repository and navigate to the root directory. Ensure that all required Python libraries (`NumPy`, `Cython`, `pyvdwsurface`, etc.) are installed. Follow the steps outlined in the README files within each directory to execute the workflow successfully.
+
 
 ## Contributions
 
