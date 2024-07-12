@@ -4,7 +4,7 @@
 
 This project provides an automated protocol for generating Electrostatic Spectral Tuning Maps (ESTM) using Python and Shell Scripting. By following this protocol, users can efficiently compute the Van der Waals (vdW) surface points of a molecule from its XYZ coordinates, and generate detailed ESTM maps, which are crucial for understanding the electrostatic properties and tuning the spectral features of molecules.
 
-![Alt text](./ESTM.png)
+![Alt text](./image.png)
 
 The process involves multiple steps, including setting up a virtual environment, installing necessary dependencies, running the main script to compute vdW surface points, generating Gaussian input files, submitting jobs to a computational cluster, and collecting the results. These steps are designed to streamline the workflow and provide a comprehensive solution for ESTM map generation.
 
