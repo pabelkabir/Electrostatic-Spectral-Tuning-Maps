@@ -54,45 +54,37 @@ Install Matplotlib: python -m pip install matplotlib
 
 ### Step 1: Van der Waals (vdW) surface points generation
 
-Place your XYZ coordinate file (Project.xyz) in the same directory as the script. The file should be formatted as follows:
+Place your XYZ coordinate file (Project.xyz) in the same directory as the script (1.vdw_surface.py). The file should be formatted as follows:
 
-python
-Copy code
 Number of atoms
+
 Comment line
+
 Atom1 x1 y1 z1
+
 Atom2 x2 y2 z2
 ...
+
 Ensure you have the following files in your working directory:
 
 vdw_surface.py (the main script)
-Your XYZ file (e.g., PHE.xyz)
-Run the script:
 
-sh
-Copy code
-python vdw_surface.py
-If you encounter the error "Python is not installed as a framework," open the Matplotlib configuration file and add the following line:
+Your XYZ file (e.g., Project.xyz)
 
-sh
-Copy code
-vim ~/.matplotlib/matplotlibrc
-# Add this line:
-backend: TkAgg
+Run the script: python 1.vdw_surface.py
+
 The script will generate the points of the surface in two formats:
 
 pointsXx.txt: Contains the points with atomic label Xx.
+
 points.txt: Contains the raw coordinate points on the vdW surface.
 
-The first step involves the retrieval of molecule coordinates based on CAS numbers provided in `file.csv`. The `cirpy` Python library is utilized to generate SMILES codes from these CAS numbers. Following this, the `rdkit` Python library is employed to extract coordinates from the SMILES codes.
 
-It's important to note that some molecules may lack a CAS number, and in some cases, `rdkit` may fail to determine the coordinates despite the presence of a CAS number. In such scenarios, manual addition of coordinates is required.
+### Step 2: Gaussian Input Generation
 
-The script creates a directory named `xyzs` and organizes the contents in an indexed sequence, mirroring the order present in `file.csv`. This organization facilitates the mapping of each coordinate to its corresponding molecule, ensuring seamless coordination between the two datasets.
+Prepare a project.com file containing methods, basis sets, and the molecule XYZ (sample input file is given in example directory: project.com).
 
-### Step 2: Iodine Check (`check_iodine.py`)
-
-This script is used to identify molecules containing iodine. Since the 6-311++G(d,p) basis set (used for all other molecules) does not support iodine, a mixed basis set approach is employed. The `gen` keyword within the route section indicates the use of a combination of 6-311++G(d,p) basis sets for elements like H, C, O, N, and the def2TZVP basis set exclusively for iodine.
+Run 2.gaussian_input.sh to generate all the Gaussian input files.
 
 ### Step 3: Optimization and Calculation
 
