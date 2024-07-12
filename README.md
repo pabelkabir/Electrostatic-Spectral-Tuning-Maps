@@ -86,9 +86,19 @@ Prepare a project.com file containing methods, basis sets, and the molecule XYZ 
 
 Run 2.gaussian_input.sh to generate all the Gaussian input files.
 
-### Step 3: Optimization and Calculation
+### Step 3: Job Submission
 
-The remaining workflow scripts are located under Table 2 and within `opt-2` directory of that Table. The same scripts have been applied on other Tables with modifying the range of ID numbers. Each script is accompanied by a detailed README file that provides a thorough description of the script's functionality and purpose. The README is present in Table2 as the scripts are repetitive for all other Tables we have.
+Modify the 3.gaussian_sub.sh script based on the total number of .com files.
+
+Run 3.gaussian_sub.sh to submit all the jobs.
+
+### Step 4: Data Collection
+
+Run 4.data_collection.sh to collect all the data from the expected excited state.
+
+### Step 5: Generation of .mol2 File
+
+Run 5.estm.sh to generate a sample.mol2 file, which can be opened with a visualization software like VMD.
 
 ## Getting Started
 
