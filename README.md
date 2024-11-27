@@ -106,7 +106,6 @@ Run 5.estm.sh to generate a sample.mol2 file, which can be opened with a visuali
 
 To begin using this workflow, clone the repository and navigate to the root directory. Ensure that all required Python libraries (`NumPy`, `Cython`, `pyvdwsurface`, etc.) are installed. Follow the steps outlined in the README files within each directory to execute the workflow successfully.
 
-
 ## Contributions
 
 Contributions to this workflow are welcome. If you have suggestions for improvement or encounter any issues, please feel free to open an issue or submit a pull request.
